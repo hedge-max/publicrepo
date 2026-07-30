@@ -1,0 +1,100 @@
+ 1051  cd chamferdist
+ 1052  cd ..
+ 1053  ls
+ 1054  rm -rf chamferdist
+ 1055  ls
+ 1056  mkdir 3d
+ 1057  ls
+ 1058  cd 3d
+ 1059  ls
+ 1060  git clone https://github.com/krrish94/chamferdist.git
+ 1061  cd chamferdist
+ 1062  pip install .
+ 1063  pip install --no-build-isolation .
+ 1064  pip uninstall -y setuptools
+ 1065  pip install --no-cache-dir --force-reinstall   setuptools==80.9.0   wheel   packaging   ninja
+ 1066  pip install --no-cache-dir --force-reinstall   setuptools==80.9.0   wheel   packaging   ninja
+ 1067  python -c "import setuptools; print('setuptools:', setuptools.__version__)"
+ 1068  python -c "import pkg_resources; print('pkg_resources:', pkg_resources.__file__)"
+ 1069  python -c "from torch.utils.cpp_extension import BuildExtension; print('cpp_extension OK')"
+ 1070  rm -rf build dist *.egg-info
+ 1071  rm -rf ~/.cache/torch_extensions
+ 1072  cd ..
+ 1073  ls
+ 1074  git clone https://github.com/gradslam/gradslam.git
+ 1075  cd gradslam
+ 1076  git checkout conceptfusion
+ 1077  pip install .
+ 1078  watch -n 1 nvidia-smi
+ 1079  ls
+ 1080  cd
+ 1081  ls
+ 1082  conda activate conceptgraph
+ 1083  ls
+ 1084  nvidia-smi
+ 1085  conda deactivate
+ 1086  ls
+ 1087  conda remove -n conceptgraph --all
+ 1088  conda create -n conceptgraph python=3.10   --override-channels   -c https://repo.anaconda.com/pkgs/main
+ 1089  conda activate conceptgraph
+ 1090  conda install --override-channels   pytorch==2.1.2   torchvision==0.16.2   torchaudio==2.1.2   pytorch-cuda=12.1   -c https://conda.anaconda.org/pytorch   -c https://conda.anaconda.org/nvidia   -c https://repo.anaconda.com/pkgs/main
+ 1091  conda install --override-channels   -c https://conda.anaconda.org/conda-forge   faiss-cpu=1.7.4 mkl=2021 blas=1.0=mkl
+ 1092  conda install https://anaconda.org/pytorch3d/pytorch3d/0.7.4/download/linux-64/pytorch3d-0.7.4-py310_cu118_pyt201.tar.bz2
+ 1093  pip install tyro open_clip_torch wandb h5py openai hydra-core distinctipy ultralytics dill supervision open3d imageio natsort kornia rerun-sdk pyliblzfse pypng git+https://github.com/ultralytics/CLIP.git
+ 1094  ls
+ 1095  cd 3d
+ 1096  ls
+ 1097  cd ..
+ 1098  ls
+ 1099  rm -rf 3d
+ 1100  ls
+ 1101  mkdir 3d
+ 1102  ls
+ 1103  cd 3d
+ 1104  ls
+ 1105  git clone https://github.com/concept-graphs/concept-graphs.git
+ 1106  cd concept-graphs
+ 1107  git checkout ali-dev
+ 1108  pip install -e .
+ 1109  echo "$CUDA_HOME"
+ 1110  echo $CUDA_HOME
+ 1111  ls
+ 1112  cd conceptgraph
+ 1113  python slam/rerun_realtime_mapping.py
+ 1114  pip uninstall -y numpy
+ 1115  conda install -y --force-reinstall   numpy=1.24.3   -c https://mirrors.sustech.edu.cn/anaconda/pkgs/main   --override-channels
+ 1116  python slam/rerun_realtime_mapping.py
+ 1117  pip install --force-reinstall --no-deps   supervision==0.14.0   -i https://pypi.tuna.tsinghua.edu.cn/simple
+ 1118  export HF_ENDPOINT=https://hf-mirror.com
+ 1119  python slam/rerun_realtime_mapping.py
+ 1120  echo 'export HF_ENDPOINT=https://hf-mirror.com' >> ~/.bashrc
+ 1121  pip install --force-reinstall --no-deps   supervision==0.18.0   -i https://pypi.tuna.tsinghua.edu.cn/simple
+ 1122  python slam/rerun_realtime_mapping.py
+ 1123  cd /home/huzw/3d/concept-graphs/conceptgraph/model_weights
+ 1124  ls
+ 1125  wget -c   "https://ghfast.top/https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8l-world.pt"   -O weights/yolov8l-world.pt
+ 1126  wget -c   "https://ghfast.top/https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8l-world.pt"
+ 1127  cd ..
+ 1128  python slam/rerun_realtime_mapping.py
+ 1129  ls
+ 1130  cd model_weight
+ 1131  cd model_weights
+ 1132  ls
+ 1133  wget -c   "https://ghfast.top/https://github.com/ultralytics/assets/releases/download/v8.4.0/sam_l.pt"
+ 1134  wget -c   "https://ghproxy.homeboyc.cn/https://github.com/ultralytics/assets/releases/download/v8.4.0/sam_l.pt"
+ 1135  wget -c   "https://ghproxy.net/https://github.com/ultralytics/assets/releases/download/v8.4.0/sam_l.pt"
+ 1136  python slam/rerun_realtime_mapping.py
+ 1137  ls
+ 1138  cd ..
+ 1139  ls
+ 1140  python slam/rerun_realtime_mapping.py
+ 1141  CUDA_VISIBLE_DEVICES=6 python slam/rerun_realtime_mapping.py
+ 1142  nvidia-smi
+ 1143  CUDA_VISIBLE_DEVICES=6 python slam/rerun_realtime_mapping.py
+ 1144  watch -n 1 nvidia-smi
+ 1145  ls
+ 1146  cd
+ 1147  ls
+ 1148  cd 3d
+ 1149  ls
+ 1150  history | tail -n 100 > recent_commands.txt
